@@ -11,6 +11,9 @@ class Index {
     }
 
     private function checkToken() {
+        $token = 'db9028a54856d895';
+        echo sha1($token);
+        exit();
         $signature = $_GET['signature'];
         $timestamp = $_GET['timestamp'];
         $rand      = $_GET['rand'];
