@@ -20,8 +20,9 @@ class Index {
         $tmpStr = implode( $tmpArr );
         $tmpStr = sha1( $tmpStr );
         if($tmpStr == $signature) {
+          exit('true');
           echo sha1($token);
           exit;
-        }
+        } exit('false');
     }
 }
