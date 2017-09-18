@@ -9,8 +9,9 @@ class Index {
         // $view = new \think\View();
         // return $view->fetch();
     }
-    
+
     private function checkToken() {
+      exit('success');
         $signature = $_GET['signature'];
         $timestamp = $_GET['timestamp'];
         $rand      = $_GET['rand'];
