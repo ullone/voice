@@ -11,7 +11,7 @@ class Index {
     }
 
     private function checkToken() {
-        $token = 'e3b1e0ffcdd5c2f5';
+        $token = '0f19212c2592c6a2';
         echo sha1($token);
         exit();
         $signature = $_GET['signature'];
