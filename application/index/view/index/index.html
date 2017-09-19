@@ -31,11 +31,10 @@
     for (i = 0; i < 6; i++) {
     　userid += $chars.charAt(Math.floor(Math.random() * maxPos));
     }
-    alert(userid);
     var timestamp = Date.parse(new Date());
     var str1 = {"scene":"main","userid":userid};
     var str  = $.base64('encode', str1);
-    var text = '明天';
+    var text = '明天我要上班';
     var test = $.base64('encode', text);
     var CheckSum = md5('59bf7ad0'+timestamp+str+'text='+test);
     // $.post('api.xfyun.cn',{
@@ -58,7 +57,7 @@
       },
       type: 'POST',
       url: 'http://api.xfyun.cn/v1/aiui/v1/text_semantic',
-      data: {text:test},
+      data: {'text':text},
       dataType: "jsonp",
       crossDomain: true,
       success: function(data) {
