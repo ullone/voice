@@ -35,8 +35,8 @@
     var str1 = {"scene":"main","userid":userid};
     var str  = $.base64('encode', str1);
     var text = '测试打发打发打发打发';
-    alert(text);
     var test = $.base64('encode', text);
+    alert(test);
     var CheckSum = md5('59bf7ad0'+timestamp+str+'text='+test);
     // $.post('api.xfyun.cn',{
     //   'text' : text
