@@ -14,10 +14,11 @@ class Index {
         } else {
         //回传后处理 token，token 在官网上有
           echo sha1("3cb58146e71d1557");
-          foreach ($_GET as $key=>$value)
-          {
-            file_put_contents("log.txt", date('H:i:s')." "."_GET: Key: $key; Value: $value"."\r\n", FILE_APPEND);
-          }
+          file_put_contents("log.txt",date('H:i:s'),FILE_APPEND);
+          // foreach ($_GET as $key=>$value)
+          // {
+          //   file_put_contents("log.txt", date('H:i:s')." "."_GET: Key: $key; Value: $value"."\r\n", FILE_APPEND);
+          // }
           exit;
         }
     }
