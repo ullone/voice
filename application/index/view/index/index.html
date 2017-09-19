@@ -37,31 +37,31 @@
     var text = '明天我要上班';
     var test = b.encode(text);
     var CheckSum = md5('59bf7ad0'+timestamp+str+'text='+test);
-    $.post('api.xfyun.cn',{
-      'text' : text
-    },headers: {
-      X-Appid : '59bf7ad0',
-      X-CurTime : timestamp,
-      X-Param : str,
-      X-CheckSum : CheckSum
-    },function(data) {
-
-    });
-    // $.ajax({
-    //   headers: {
-    //     X-Appid : '59bf7ad0',
-    //     X-CurTime : timestamp,
-    //     X-Param : str,
-    //     X-CheckSum : CheckSum
-    //   },
-    //   type: 'POST',
-    //   url: 'api.xfyun.cn',
-    //   data: {text:text},
-    //   dataType: "json",
-    //   success: function(data) {
+    // $.post('api.xfyun.cn',{
+    //   'text' : text
+    // },headers: {
+    //   X-Appid : '59bf7ad0',
+    //   X-CurTime : timestamp,
+    //   X-Param : str,
+    //   X-CheckSum : CheckSum
+    // },function(data) {
     //
-    //   }
     // });
+    $.ajax({
+      headers: {
+        X-Appid : '59bf7ad0',
+        X-CurTime : timestamp,
+        X-Param : str,
+        X-CheckSum : CheckSum
+      },
+      type: 'POST',
+      url: 'api.xfyun.cn',
+      data: {text:text},
+      dataType: "json",
+      success: function(data) {
+
+      }
+    });
   });
   </script>
 </html>
