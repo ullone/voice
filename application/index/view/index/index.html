@@ -15,8 +15,7 @@
     </div> -->
   </body>
   <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-  <script src='https://github.com/yckart/jquery.base64.js'></script>
-  <!-- <script src='js/jquery.base64.js'></script> -->
+  <script src='/static/js/jquery.base64.js'></script>
   <script type="text/javascript">
   // var app2 = new Vue({
   //   el: '#app-2',
@@ -34,9 +33,9 @@
     alert(userid);
     var timestamp = Date.parse(new Date());
     var str1 = {"scene":"main","userid":userid};
-    var str  = $.base64.btoa(str1);
+    var str  = $.base64('encode', str1);
     var text = '明天我要上班';
-    var test = $.base64.btoa(text);
+    var test = $.base64('encode', text);
     var CheckSum = md5('59bf7ad0'+timestamp+str+'text='+test);
     // $.post('api.xfyun.cn',{
     //   'text' : text
