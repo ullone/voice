@@ -12,12 +12,14 @@ class Index {
         //   $input=file_get_contents("php://input");
         //   file_put_contents("log.txt", date('H:i:s')." ".$input."\r\n",FILE_APPEND);
         // } else {
+          $token = sha1("1256128b901c8f7a")
+          echo $token;
           $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
-          $txt = "Bill Gates\n";
-          fwrite($myfile, $txt);
+          fwrite($myfile, $token.'\n');
           $txt = "Steve Jobs\n";
           fwrite($myfile, $txt);
           fclose($myfile);
+          exit();
         //回传后处理 token，token 在官网上有
           // echo sha1("3cb58146e71d1557");
           // file_put_contents("log.txt",date('H:i:s'),FILE_APPEND);
