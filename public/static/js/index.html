@@ -1,29 +1,38 @@
-<!DOCTYPE html>
-<html lang="zh">
+<!doctype html>
+<html>
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>jquery在线base64编码和解码插件</title>
-	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-	<link rel="stylesheet" type="text/css" href="css/niuqiqi-demo.css">
-	<style>
-        body {
-            text-align: center;
-            overflow-x: hidden;
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width'>
+
+    <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet'>
+    <style>
+        html, body {
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            height: 100%
         }
-	.niuqiqi-content{
-		width: 100%;
-		height: 500px;
-	}
+
+        body {
+            font-family: 'Sanchez', serif;
+            text-align: center;
+            background: whiteSmoke
+        }
+
+        h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: 0 -50px;
+            color: #e44;
+            z-index: 1;
+        }
 
         form {
-        	display: inline-block;
             position: relative;
-            width: 95%;
             height: 100%;
             text-align: left
-            margin:30px auto;
         }
 
         label {
@@ -60,29 +69,31 @@
             left: 50.5%;
             right: 0
         }
-
+        a {
+            display: inline-block;
+            margin: 6px 6px;
+            color: black;
+            text-decoration: none;
+            border-bottom: 1px dotted #0ae
+        }
     </style>
+
+    <title>jquery.base64.js | Makes Base64 en & -decoding simpler as it is</title>
 </head>
+
 <body>
-	<div class="niuqiqi-container" style="margin-top:50px;">
+    <h1>Base64</h1>
 
-		<h3>在左边输入的字符会被base64编码，并在右边显示</h3>
-		<div class="niuqiqi-content">
+    <form>
+        <label for="encode" class="encode">Encode</label>
+        <textarea id="encode">we &hearts; yckart</textarea>
+        <label for="decode" class="decode">Decode</label>
+        <textarea id="decode">d2Ug4pmlIHlja2FydA==</textarea>
+    </form>
 
-			<form>
-		        <label for="encode" class="encode">编码</label>
-		        <textarea id="encode"></textarea>
-		        <label for="decode" class="decode">解码</label>
-		        <textarea id="decode"></textarea>
-		    </form>
-		</div>
-
-	</div>
-	
-	<script src="http://cdn.bootcss.com/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
-	<script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
-	 <script src='js/jquery.base64.js'></script>
-	 <script>
+    <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+    <script src='jquery.base64.js'></script>
+    <script>
         var dec = $('#decode'),
             enc = $('#encode');
 
@@ -113,13 +124,5 @@
             $(this).prev('label').stop().fadeToggle(200);
         });
     </script>
-	
-<!--readem 非正文信息-->
-<div style="clear:both;height:10px;"></div>
-<div class="rem" style="width:80%;margin:30px auto 10px auto;font-size:14px;">
-<p style="border-top:1px solid #ccc;padding-top:10px;"><a href="http://www.niuqiqi.com/" target="_blank">返回首页</a> / 代码整理：<a href="http://www.niuqiqi.com/" target="_blank">牛七七</a></p>
-<p style="font-size:14px;">◎ 尊重他人劳动成果,转载请自觉注明出处！注：此代码仅供学习交流,请勿用于商业用途。</p>
-</div>
-<!--end readem-->
 </body>
 </html>
