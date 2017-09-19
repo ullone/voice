@@ -35,7 +35,7 @@
     var timestamp = Date.parse(new Date());
     var str1 = {"scene":"main","userid":userid};
     var str  = $.base64('encode', str1);
-    var text = '明天我要上班';
+    var text = '明天';
     var test = $.base64('encode', text);
     var CheckSum = md5('59bf7ad0'+timestamp+str+'text='+test);
     // $.post('api.xfyun.cn',{
