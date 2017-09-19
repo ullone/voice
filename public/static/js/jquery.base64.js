@@ -1,5 +1,5 @@
 /*!
- * jquery.base64.js 0.0.3 - https://github.com/yckart/jquery.base64.js
+ * jquery.base64.js 0.1 - https://github.com/yckart/jquery.base64.js
  * Makes Base64 en & -decoding simpler as it is.
  *
  * Based upon: https://gist.github.com/Yaffle/1284012
@@ -111,7 +111,6 @@
     };
 
     Plugin.atob = Plugin.decode = function(coded, utf8decode) {
-        coded = coded.replace(/[^A-Za-z0-9\+\/\=]/g, "");
         coded = String(coded).split('=');
         var i = coded.length;
         do {--i;

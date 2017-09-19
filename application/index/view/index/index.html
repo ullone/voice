@@ -14,9 +14,10 @@
       </span>
     </div> -->
   </body>
-  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <!-- <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script> -->
   <script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
-  <script src='https://github.com/yckart/jquery.base64.js'></script>
+  <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+  <script src='/static/js/jquery.base64.js'></script>
   <script type="text/javascript">
   // var app2 = new Vue({
   //   el: '#app-2',
@@ -33,9 +34,9 @@
     }
     var timestamp = Date.parse(new Date());
     var str1 = {"scene":"main","userid":userid};
-    var str  = window.BASE64.encode(str1);
+    var str  = $.base64.btoa(str1);
     var text = '上班';
-    var test = window.BASE64.encode(text);
+    var test = $.base64.btoa(text);
     alert(test);
     var CheckSum = md5('59bf7ad0'+timestamp+str+'text='+test);
     // $.post('api.xfyun.cn',{
