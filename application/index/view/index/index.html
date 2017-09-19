@@ -53,10 +53,11 @@
         'X-Appid' : '59bf7ad0',
         'X-CurTime' : timestamp,
         'X-Param' : str,
-        'X-CheckSum' : CheckSum
+        'X-CheckSum' : CheckSum,
+        'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8'
       },
       type: 'POST',
-      url: 'http://api.xfyun.cn',
+      url: 'http://api.xfyun.cn/v1/aiui/v1/text_semantic HTTP/1.1',
       data: {text:text},
       dataType: "jsonp",
       crossDomain: true,
