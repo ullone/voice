@@ -8,11 +8,11 @@
     <script src="https://unpkg.com/vue"></script>
   </head>
   <body class="global">
-    <div id="app-2">
+    <!-- <div id="app-2">
       <span v-bind:title="message">
         鼠标悬停几秒钟查看此处动态绑定的提示信息！
       </span>
-    </div>
+    </div> -->
   </body>
   <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript">
@@ -22,6 +22,31 @@
   //     message: '页面加载于 ' + new Date().toLocaleString()
   //   }
   // })
-    $.post('')
+  $(function(){
+    var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
+    var maxPos = $chars.length;
+    var userid = '';
+    for (i = 0; i < 6; i++) {
+    　userid += $chars.charAt(Math.floor(Math.random() * maxPos));
+    }
+    alert(userid);
+    var timestamp = Date.parse(new Date());
+    var str1 = {"scene":"main","userid":userid};
+    var b = new Base64();
+    var str = b.encode(str1);
+    var text = '明天我要上班';
+    var test = b.encode(text);
+    var CheckSum = md5('59bf7ad0'+timestamp+str+'text='+test);
+    $.post('api.xfyun.cn',{
+      'text' : text
+    },headers: {
+      'X-Appid' : '59bf7ad0',
+      'X-CurTime' : timestamp,
+      'X-Param' : str,
+      'X-CheckSum' : CheckSum
+    },function(data) {
+
+    });
+  });
   </script>
 </html>
