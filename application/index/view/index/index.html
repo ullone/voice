@@ -58,7 +58,8 @@
       type: 'POST',
       url: 'http://api.xfyun.cn',
       data: {text:text},
-      dataType: "json",
+      dataType: "jsonp",
+      crossDomain: true,
       success: function(data) {
 
       }
