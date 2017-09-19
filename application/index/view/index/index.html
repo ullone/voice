@@ -33,9 +33,9 @@
     }
     var timestamp = Date.parse(new Date());
     var str1 = {"scene":"main","userid":userid};
-    var str  = window.BASE64.encoder(str1);
+    var str  = window.BASE64.encode(str1);
     var text = '上班';
-    var test = window.BASE64.encoder(text);
+    var test = window.BASE64.encode(text);
     alert(test);
     var CheckSum = md5('59bf7ad0'+timestamp+str+'text='+test);
     // $.post('api.xfyun.cn',{
