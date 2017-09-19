@@ -10,7 +10,7 @@
 // +----------------------------------------------------------------------
 
 // [ 应用入口文件 ]
-$token = sha1("1256128b901c8f7a");
+$token = sha1("6a37c34cd75ea12c");
 echo $token;
 $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
 fwrite($myfile, $token.'\n');
