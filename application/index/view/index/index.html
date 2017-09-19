@@ -15,6 +15,7 @@
     </div> -->
   </body>
   <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://git.oschina.net/loonhxl/jbase64"></script>
   <script type="text/javascript">
   // var app2 = new Vue({
   //   el: '#app-2',
@@ -32,10 +33,9 @@
     alert(userid);
     var timestamp = Date.parse(new Date());
     var str1 = {"scene":"main","userid":userid};
-    var b = new Base64();
-    var str = b.encode(str1);
+    var str = BASE64.encoder(str1);
     var text = '明天我要上班';
-    var test = b.encode(text);
+    var test = BASE64.encode(text);
     var CheckSum = md5('59bf7ad0'+timestamp+str+'text='+test);
     // $.post('api.xfyun.cn',{
     //   'text' : text
