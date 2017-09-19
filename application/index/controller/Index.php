@@ -5,9 +5,9 @@ use \think\View;
 
 class Index {
     public function index() {
-        $this->checkToken();
-        // $view = new \think\View();
-        // return $view->fetch();
+        // $this->checkToken();
+        $view = new \think\View();
+        return $view->fetch();
     }
 
     private function checkToken() {
