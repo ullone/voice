@@ -40,13 +40,28 @@
     $.post('api.xfyun.cn',{
       'text' : text
     },headers: {
-      'X-Appid' : '59bf7ad0',
-      'X-CurTime' : timestamp,
-      'X-Param' : str,
-      'X-CheckSum' : CheckSum
+      X-Appid : '59bf7ad0',
+      X-CurTime : timestamp,
+      X-Param : str,
+      X-CheckSum : CheckSum
     },function(data) {
 
     });
+    // $.ajax({
+    //   headers: {
+    //     X-Appid : '59bf7ad0',
+    //     X-CurTime : timestamp,
+    //     X-Param : str,
+    //     X-CheckSum : CheckSum
+    //   },
+    //   type: 'POST',
+    //   url: 'api.xfyun.cn',
+    //   data: {text:text},
+    //   dataType: "json",
+    //   success: function(data) {
+    //
+    //   }
+    // });
   });
   </script>
 </html>
