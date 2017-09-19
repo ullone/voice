@@ -1,128 +1,72 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width'>
-
-    <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet'>
-    <style>
-        html, body {
-            margin-top: 0;
-            margin-bottom: 0;
-            padding-top: 0;
-            padding-bottom: 0;
-            height: 100%
-        }
-
-        body {
-            font-family: 'Sanchez', serif;
-            text-align: center;
-            background: whiteSmoke
-        }
-
-        h1 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin: 0 -50px;
-            color: #e44;
-            z-index: 1;
-        }
-
-        form {
-            position: relative;
-            height: 100%;
-            text-align: left
-        }
-
-        label {
-            position: absolute;
-            top: 0;
-            color: #aaa;
-            z-index: 1
-        }
-
-        .encode {
-            left: 50%;
-            margin-left: -65px
-        }
-
-        .decode {right:0}
-
-
-        textarea {
-            font-family: 'Sanchez', serif;
-            width: 50%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            overflow: hidden;
-            border: none;
-            resize: none
-        }
-        #encode {
-            left: -0.5%;
-            right: 50%
-        }
-        #decode {
-            left: 50.5%;
-            right: 0
-        }
-        a {
-            display: inline-block;
-            margin: 6px 6px;
-            color: black;
-            text-decoration: none;
-            border-bottom: 1px dotted #0ae
-        }
-    </style>
-
-    <title>jquery.base64.js | Makes Base64 en & -decoding simpler as it is</title>
-</head>
-
-<body>
-    <h1>Base64</h1>
-
-    <form>
-        <label for="encode" class="encode">Encode</label>
-        <textarea id="encode">we &hearts; yckart</textarea>
-        <label for="decode" class="decode">Decode</label>
-        <textarea id="decode">d2Ug4pmlIHlja2FydA==</textarea>
-    </form>
-
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>test</title>
+    <!-- <script src="https://unpkg.com/vue"></script> -->
+  </head>
+  <body class="global">
     <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
-    <script src='jquery.base64.js'></script>
-    <script>
-        var dec = $('#decode'),
-            enc = $('#encode');
+    <script src='/static/js/jquery.base64.js'></script>
+    <!-- <div id="app-2">
+      <span v-bind:title="message">
+        鼠标悬停几秒钟查看此处动态绑定的提示信息！
+      </span>
+    </div> -->
+  </body>
+  <!-- <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script> -->
+  <!-- <script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script> -->
+  <script type="text/javascript">
+  // var app2 = new Vue({
+  //   el: '#app-2',
+  //   data: {
+  //     message: '页面加载于 ' + new Date().toLocaleString()
+  //   }
+  // })
+  $(function(){
+    $.base64.utf8encode = true;
+    var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
+    var maxPos = $chars.length;
+    var userid = '';
+    for (i = 0; i < 6; i++) {
+    　userid += $chars.charAt(Math.floor(Math.random() * maxPos));
+    }
+    var timestamp = Date.parse(new Date());
+    var str1 = {"scene":"main","userid":userid};
+    var str  = $.base64.btoa(str1);
+    var text = '上班';
+    var test = $.base64.btoa(text);
+    alert(test);
+    var CheckSum = md5('59bf7ad0'+timestamp+str+'text='+test);
+    // $.post('api.xfyun.cn',{
+    //   'text' : text
+    // },headers: {
+    //   X-Appid : '59bf7ad0',
+    //   X-CurTime : timestamp,
+    //   X-Param : str,
+    //   X-CheckSum : CheckSum
+    // },function(data) {
+    //
+    // });
+    $.ajax({
+      headers: {
+        'X-Appid' : '59bf7ad0',
+        'X-CurTime' : timestamp,
+        'X-Param' : str,
+        'X-CheckSum' : CheckSum,
+        'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8'
+      },
+      type: 'POST',
+      url: 'http://api.xfyun.cn/v1/aiui/v1/text_semantic',
+      data: {'text':text},
+      dataType: "jsonp",
+      crossDomain: true,
+      success: function(data) {
 
-        // you can set utf8 encoding and decoding via global option
-        // possible options:
-        // `utf8encode` - utf8 encoding only (default: `false`)
-        // `utf8decode` - utf8 decoding only (default: `false`)
-        // `raw` - both (default: `true`)
-        $.base64.utf8encode = true;
-
-        enc.keyup(function () {
-            dec.val($.base64.btoa(this.value));
-            // also possible:
-            // dec.val( $.base64('encode', this.value) );
-            // dec.val( $.base64.encode(this.value) );
-        });
-
-
-        dec.keyup(function () {
-            // note: you can pass a third parameter to use the utf8 en- / decode option
-            enc.val($.base64.atob(this.value, true));
-            // also possible:
-            // dec.val( $.base64('decode', this.value) );
-            // dec.val( $.base64.decode(this.value) );
-        });
-
-        $('textarea').on('focus blur', function () {
-            $(this).prev('label').stop().fadeToggle(200);
-        });
-    </script>
-</body>
+      }
+    });
+  });
+  </script>
 </html>
