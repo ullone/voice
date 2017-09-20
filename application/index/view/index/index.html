@@ -11,35 +11,10 @@
     <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
     <script src='/static/js/jquery.base64.js'></script>
     <script>
-        var dec = $('#decode'),
-            enc = $('#encode');
-
-        // you can set utf8 encoding and decoding via global option
-        // possible options:
-        // `utf8encode` - utf8 encoding only (default: `false`)
-        // `utf8decode` - utf8 decoding only (default: `false`)
-        // `raw` - both (default: `true`)
         $.base64.utf8encode = true;
-
-        enc.keyup(function () {
-            dec.val($.base64.btoa(this.value));
-            // also possible:
-            // dec.val( $.base64('encode', this.value) );
-            // dec.val( $.base64.encode(this.value) );
-        });
-
-
-        dec.keyup(function () {
-            // note: you can pass a third parameter to use the utf8 en- / decode option
-            enc.val($.base64.atob(this.value, true));
-            // also possible:
-            // dec.val( $.base64('decode', this.value) );
-            // dec.val( $.base64.decode(this.value) );
-        });
-
-        $('textarea').on('focus blur', function () {
-            $(this).prev('label').stop().fadeToggle(200);
-        });
+        var text = '上班';
+        var test = $.base64.btoa(text);
+        alert(test);
     </script>
 </body>
 </html>
