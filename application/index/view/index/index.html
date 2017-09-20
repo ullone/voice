@@ -20,6 +20,7 @@
       　userid += $chars.charAt(Math.floor(Math.random() * maxPos));
       }
       var timestamp = Date.parse(new Date());
+      alert(timestamp);
       var str1 = {"scene":"main","userid":userid};
       str1     = JSON.stringify(str1);
       var str  = $.base64.btoa(str1);
@@ -37,7 +38,7 @@
         },
         type: 'POST',
         url: 'http://api.xfyun.cn/v1/aiui/v1/text_semantic',
-        data: {'text':text,space[]:datetime},
+        data: {'text':test},
         dataType: "jsonp",
         crossDomain: true,
         success: function(data) {
