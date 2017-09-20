@@ -38,7 +38,7 @@ class Index {
         "X-CurTime    : ".$data['timestamp'],
         "X-CheckSum   : ".$data['checkSum'],
         "X-Param      : ".$data['param'],
-        "Content-Type : application/x-www-form-urlencoded; charset=utf-8"
+        // "Content-Type : application/x-www-form-urlencoded; charset=utf-8"
       ];
     	$ch = curl_init();
     	curl_setopt($ch, CURLOPT_URL, $url);
