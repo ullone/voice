@@ -20,7 +20,7 @@
       　userid += $chars.charAt(Math.floor(Math.random() * maxPos));
       }
       var timestamp = Date.parse(new Date());
-      var str1 = {"scene":"main","userid":userid};
+      var str1 = {"scene":"datetime","userid":userid};
       str1     = JSON.stringify(str1);
       var str  = $.base64.btoa(str1);
       var text = '今天星期几';
@@ -37,7 +37,7 @@
         },
         type: 'POST',
         url: 'http://api.xfyun.cn/v1/aiui/v1/text_semantic',
-        data: {'text':test},
+        data: {'text':text},
         dataType: "jsonp",
         // crossDomain: true,
         success: function(data) {
