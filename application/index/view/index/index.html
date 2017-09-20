@@ -19,7 +19,7 @@
       for (i = 0; i < 6; i++) {
       　userid += $chars.charAt(Math.floor(Math.random() * maxPos));
       }
-      var timestamp = Date.parse(new Date());
+      var timestamp = Date.parse(new Date())/1000;
       alert(timestamp);
       var str1 = {"scene":"main","userid":userid};
       str1     = JSON.stringify(str1);
