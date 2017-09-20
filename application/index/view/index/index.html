@@ -30,7 +30,7 @@
       var CheckSum = md5('406ea0c36b4f49cea2b45360bb84271f'+timestamp+str+'text='+test);
       $.ajax({
         type: "POST",
-        url: "http://api.xfyun.cn/v1/aiui/v1/text_semantic",
+        url: "https://api.xfyun.cn/v1/aiui/v1/text_semantic",
         success: function(data) {
            alert(data.code);
         }
