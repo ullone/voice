@@ -53,7 +53,6 @@ class Index {
     		print curl_error($ch);
     	}
     	curl_close($ch);
-    	return $response;
-      exit();
+    	var_dump($response);die;
     }
 }
