@@ -23,9 +23,9 @@
       var str1 = {"scene":"main"};
       str1      = JSON.stringify(str1);
       var str  = $.base64.btoa(str1);
-      var text = '今天是星期几';
+      var text = '今天星期几';
       var test = $.base64.btoa(text);
-      alert(str);
+      alert(test);
       var CheckSum = md5('59bf7ad0'+timestamp+str+'text='+test);
       // $.post('api.xfyun.cn',{
       //   'text' : text
