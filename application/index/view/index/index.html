@@ -23,7 +23,7 @@
       var str1 = {"scene":"main","userid":userid};
       str1      = JSON.stringify(str1);
       var str  = $.base64.btoa(str1);
-      var text = '上班';
+      var text = '今天是星期几';
       var test = $.base64.btoa(text);
       alert(test);
       var CheckSum = md5('59bf7ad0'+timestamp+str+'text='+test);
@@ -39,8 +39,8 @@
       // });
       $.ajax({
         headers: {
-          'X-Appid' : '59bf7ad0',
-          'X-CurTime' : timestamp,
+          // 'X-Appid' : '59bf7ad0',
+          // 'X-CurTime' : timestamp,
           // 'X-Param' : str,
           'X-CheckSum' : CheckSum,
           'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8'
