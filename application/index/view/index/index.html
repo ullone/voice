@@ -20,13 +20,13 @@
       　userid += $chars.charAt(Math.floor(Math.random() * maxPos));
       }
       var timestamp = Date.parse(new Date());
-      var str1 = {"scene":"datetime","userid":userid};
-      str1      = JSON.stringify(str1);
+      var str1 = {"scene":"main","userid":userid};
+      str1     = JSON.stringify(str1);
       var str  = $.base64.btoa(str1);
       var text = '今天星期几';
       var test = $.base64.btoa(text);
       // alert(test);
-      var CheckSum = md5('59bf7ad0'+timestamp+str+'text='+test);
+      var CheckSum = md5('406ea0c36b4f49cea2b45360bb84271f'+timestamp+str+'text='+test);
       $.ajax({
         headers: {
           'X-Appid' : '59bf7ad0',
@@ -37,7 +37,7 @@
         },
         type: 'POST',
         url: 'http://api.xfyun.cn/v1/aiui/v1/text_semantic',
-        data: {'text':test},
+        data: {'text':text},
         dataType: "jsonp",
         // crossDomain: true,
         success: function(data) {
