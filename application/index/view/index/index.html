@@ -5,46 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>test</title>
-    <!-- <script src="https://unpkg.com/vue"></script> -->
+    <script src="https://unpkg.com/vue"></script>
   </head>
   <body class="global">
-    <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
-    <script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
-    <script src='/static/js/jquery.base64.js'></script>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script>
-      $.base64.utf8encode = true;
-      var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
-      var maxPos = $chars.length;
-      var userid = '';
-      for (i = 0; i < 6; i++) {
-      　userid += $chars.charAt(Math.floor(Math.random() * maxPos));
-      }
-      var timestamp = Date.parse(new Date())/1000;
-      alert(timestamp);
-      var str1 = {"scene":"main","userid":userid};
-      str1     = JSON.stringify(str1);
-      var str  = $.base64.btoa(str1);
-      var text = '今天星期几';
-      var test = $.base64.btoa(text);
-      // alert(test);
-      var CheckSum = md5('406ea0c36b4f49cea2b45360bb84271f'+timestamp+str+'text='+test);
-      $.ajax({
-        headers: {
-          'X-Appid' : '59bf7ad0',
-          'X-CurTime' : timestamp,
-          'X-Param' : str,
-          'X-CheckSum' : CheckSum,
-          'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8'
-        },
-        type: "POST",
-        url: "http://api.xfyun.cn/v1/aiui/v1/text_semantic",
-        data: {'text':test},
-        // dataType: "jsonp",
-        crossDomain: true,
-        success: function(data) {
-          //  alert(data.code);
-        }
+      $(function() {
+        test();
       });
+
+      function test() {
+        $.post('index/Index',{
+          'text' : '今天星期几'
+        },function() {
+
+        })
+      }
     </script>
 </body>
 </html>
