@@ -10,7 +10,7 @@ class Index {
     }
 
     public function semanticComprehension() {
-      $text   = empty($_POST['text'])?'今天星期几':$text;
+      $text   = empty($_POST['text'])?'今天星期几':$_POST['text'];
       $text   = base64_encode($text);
       $timestamp = time();
       //生成param参数
