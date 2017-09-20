@@ -40,6 +40,7 @@ class Index {
         "X-Param      : ".$data['param'],
         "Content-Type : application/x-www-form-urlencoded; charset=utf-8"
       ];
+      var_dump($header);die;
     	$ch = curl_init();
     	curl_setopt($ch, CURLOPT_URL, $url);
     	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
