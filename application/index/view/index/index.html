@@ -29,16 +29,17 @@
       // alert(test);
       var CheckSum = md5('406ea0c36b4f49cea2b45360bb84271f'+timestamp+str+'text='+test);
       $.ajax({
-        // headers: {
-        //   'X-Appid' : '59bf7ad0',
-        //   'X-CurTime' : timestamp,
-        //   'X-Param' : str,
-        //   'X-CheckSum' : CheckSum,
-        //   'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8'
-        // },
+        headers: {
+          'origin' : "http://voice.ullone.com",
+          'X-Appid' : '59bf7ad0',
+          'X-CurTime' : timestamp,
+          'X-Param' : str,
+          'X-CheckSum' : CheckSum,
+          'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8'
+        },
         type: "POST",
         url: "https://api.xfyun.cn/v1/aiui/v1/text_semantic",
-        // data: {'text':test},
+        data: {'text':test},
         // dataType: "jsonp",
         crossDomain: true,
         success: function(data) {
