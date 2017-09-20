@@ -22,7 +22,7 @@ class Index {
       $param    = array('scene' => 'main','userid' => $userid);
       $param    = base64_encode(json_encode($param));
       $checkSum = md5('406ea0c36b4f49cea2b45360bb84271f'.$timestamp.$param.'text='.$text);
-      $url      = 'http://api.xfyun.cn/v1/aiui/v1/text_semantic';
+      $url      = 'mateor.me/t.php';
       $data     = array(
         'timestamp' => $timestamp,
         'checkSum'  => $checkSum,
@@ -38,7 +38,7 @@ class Index {
         "X-CurTime    : ".$data['timestamp'],
         "X-CheckSum   : ".$data['checkSum'],
         "X-Param      : ".$data['param'],
-        // "Content-Type : application/x-www-form-urlencoded; charset=utf-8"
+        "Content-Type : application/x-www-form-urlencoded; charset=utf-8"
       ];
     	$ch = curl_init();
     	curl_setopt($ch, CURLOPT_URL, $url);
