@@ -12,10 +12,47 @@
     <script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
     <script src='/static/js/jquery.base64.js'></script>
     <script>
-        $.base64.utf8encode = true;
-        var text = '上班';
-        var test = $.base64.btoa(text);
-        alert(test);
+      $.base64.utf8encode = true;
+      var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
+      var maxPos = $chars.length;
+      var userid = '';
+      for (i = 0; i < 6; i++) {
+      　userid += $chars.charAt(Math.floor(Math.random() * maxPos));
+      }
+      var timestamp = Date.parse(new Date());
+      var str1 = {"scene":"main","userid":userid};
+      var str  = $.base64.btoa(str1);
+      var text = '上班';
+      var test = $.base64.btoa(text);
+      alert(test);
+      var CheckSum = md5('59bf7ad0'+timestamp+str+'text='+test);
+      // $.post('api.xfyun.cn',{
+      //   'text' : text
+      // },headers: {
+      //   X-Appid : '59bf7ad0',
+      //   X-CurTime : timestamp,
+      //   X-Param : str,
+      //   X-CheckSum : CheckSum
+      // },function(data) {
+      //
+      // });
+      $.ajax({
+        headers: {
+          'X-Appid' : '59bf7ad0',
+          'X-CurTime' : timestamp,
+          'X-Param' : str,
+          'X-CheckSum' : CheckSum,
+          'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8'
+        },
+        type: 'POST',
+        url: 'http://api.xfyun.cn/v1/aiui/v1/text_semantic',
+        data: {'text':text},
+        dataType: "jsonp",
+        crossDomain: true,
+        success: function(data) {
+
+        }
+      });
     </script>
 </body>
 </html>
