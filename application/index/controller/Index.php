@@ -19,10 +19,9 @@ class Index {
       {
         $userid .= chr(mt_rand(33, 126));
       }
-      $param    = array('scene' => 'main');
+      $param    = array('scene' => 'main','userid' => $userid);
       $param    = base64_encode(json_encode($param));
-      // $checkSum = md5('406ea0c36b4f49cea2b45360bb84271f'.$timestamp.$param.'text='.$text);
-      $checkSum = md5('abcd12341502610698'.$param.'text='.$text);
+      $checkSum = md5('406ea0c36b4f49cea2b45360bb84271f'.$timestamp.$param.'text='.$text);
       $url      = 'http://api.xfyun.cn/v1/aiui/v1/text_semantic';
       $data     = array(
         'timestamp' => $timestamp,
@@ -30,7 +29,6 @@ class Index {
         'param'     => $param,
         'text'      => $text
       );
-      var_dump($data);die;
       $this->doCurl($url, 'post', $data);
     }
 
@@ -56,5 +54,6 @@ class Index {
     	}
     	curl_close($ch);
     	return $response;
+      exit();
     }
 }
