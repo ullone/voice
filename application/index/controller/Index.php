@@ -19,7 +19,7 @@ class Index {
       {
         $userid .= chr(mt_rand(33, 126));
       }
-      $param    = array('scene' => 'main','userid' => $userid);
+      $param    = array('scene' => 'main');
       $param    = base64_encode(json_encode($param));
       $checkSum = md5('406ea0c36b4f49cea2b45360bb84271f'.$timestamp.$param.'text='.$text);
       $url      = 'http://api.xfyun.cn/v1/aiui/v1/text_semantic';
