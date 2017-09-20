@@ -36,9 +36,9 @@ class Index {
     private function doCurl($url, $method = 'get', $data = null) {
       $header = [
         "X-Appid      : 59bf7ad0",
-        "X-CurTime    : $data['timestamp']",
-        "X-CheckSum   : $data['checkSum']",
-        "X-Param      : $data['param']",
+        "X-CurTime    : ".$data['timestamp'],
+        "X-CheckSum   : ".$data['checkSum'],
+        "X-Param      : ".$data['param'],
         "Content-Type : application/x-www-form-urlencoded; charset=utf-8"
       ];
     	$ch = curl_init();
