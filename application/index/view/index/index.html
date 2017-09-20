@@ -23,26 +23,15 @@
       var str1 = {"scene":"main"};
       str1      = JSON.stringify(str1);
       var str  = $.base64.btoa(str1);
-      var text = '今天星期几';
+      var text = '游戏';
       var test = $.base64.btoa(text);
       // alert(test);
-      var CheckSum = '59bf7ad0'+timestamp+str+'text='+test;
-      alert(CheckSum);
-      // $.post('api.xfyun.cn',{
-      //   'text' : text
-      // },headers: {
-      //   X-Appid : '59bf7ad0',
-      //   X-CurTime : timestamp,
-      //   X-Param : str,
-      //   X-CheckSum : CheckSum
-      // },function(data) {
-      //
-      // });
+      var CheckSum = md5('59bf7ad0'+timestamp+str+'text='+test);
       $.ajax({
         headers: {
-          // 'X-Appid' : '59bf7ad0',
-          // 'X-CurTime' : timestamp,
-          // 'X-Param' : str,
+          'X-Appid' : '59bf7ad0',
+          'X-CurTime' : timestamp,
+          'X-Param' : str,
           'X-CheckSum' : CheckSum,
           'Content-Type' : 'application/x-www-form-urlencoded; charset=utf-8'
         },
@@ -52,7 +41,7 @@
         dataType: "jsonp",
         crossDomain: true,
         success: function(data) {
-
+           alert(data.code);
         }
       });
     </script>
