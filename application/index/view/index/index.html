@@ -31,6 +31,7 @@
       $.ajax({
         type: "POST",
         url: "https://api.xfyun.cn/v1/aiui/v1/text_semantic",
+        dataType: "jsonp",
         success: function(data) {
            alert(data.code);
         }
