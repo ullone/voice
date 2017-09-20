@@ -25,8 +25,9 @@
       var str  = $.base64.btoa(str1);
       var text = '今天星期几';
       var test = $.base64.btoa(text);
-      alert(test);
-      var CheckSum = md5('59bf7ad0'+timestamp+str+'text='+test);
+      // alert(test);
+      var CheckSum = '59bf7ad0'+timestamp+str+'text='+test;
+      alert(CheckSum);
       // $.post('api.xfyun.cn',{
       //   'text' : text
       // },headers: {
