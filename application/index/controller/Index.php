@@ -22,7 +22,7 @@ class Index {
       $param    = array('scene' => 'main','userid' => $userid);
       $param    = base64_encode(json_encode($param));
       $checkSum = md5('406ea0c36b4f49cea2b45360bb84271f'.$timestamp.$param.'text='.$text);
-      $url      = 'mateor.me/t.php';
+      $url      = 'https://imyour.vip/admin/TestCon/test';
       $data     = array(
         'timestamp' => $timestamp,
         'checkSum'  => $checkSum,
