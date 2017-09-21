@@ -46,6 +46,7 @@ class Index {
     	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     	curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
     	if($method == 'post') {
+        exit('success');
     		curl_setopt($ch, CURLOPT_POST, 1);
     		curl_setopt($ch, CURLOPT_POSTFIELDS, $data['text']);
     	}
