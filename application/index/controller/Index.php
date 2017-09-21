@@ -23,7 +23,8 @@ class Index {
       $param    = base64_encode(json_encode($param));
       $checkSum = '406ea0c36b4f49cea2b45360bb84271f'.$timestamp.$param.'text='.$text;
       $checkSum = md5($checkSum);
-      $url      = 'http://api.xfyun.cn/v1/aiui/v1/text_semantic';
+      // $url      = 'http://api.xfyun.cn/v1/aiui/v1/text_semantic';
+      $url      = 'https://imyour.vip/admin/Testcon/Index/test';
       $data     = array(
         'timestamp' => $timestamp,
         'checkSum'  => $checkSum,
@@ -46,7 +47,6 @@ class Index {
     	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     	curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
     	if($method == 'post') {
-        exit('success');
     		curl_setopt($ch, CURLOPT_POST, 1);
     		curl_setopt($ch, CURLOPT_POSTFIELDS, $data['text']);
     	}
