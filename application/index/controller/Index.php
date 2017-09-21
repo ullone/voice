@@ -22,7 +22,7 @@ class Index {
       $param    = array('scene' => 'main');
       $param    = base64_encode(json_encode($param));
       $checkSum = md5('406ea0c36b4f49cea2b45360bb84271f'.$timestamp.$param.'text='.$text);
-      var_dump($param);die;
+      var_dump($text);die;
       $url      = 'http://api.xfyun.cn/v1/aiui/v1/text_semantic';
       $data     = array(
         'timestamp' => $timestamp,
