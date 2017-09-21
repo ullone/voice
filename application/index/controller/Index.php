@@ -13,8 +13,6 @@ class Index {
       $text   = empty($_POST['text'])?'今天星期几':$_POST['text'];
       $text   = base64_encode($text);
       $timestamp = time();
-      $time = date("Y-m-d H:i:s",$timestamp);
-      var_dump($timestamp);var_dump($time);die;
       //生成param参数
       $userid = '';
       for ($i = 0; $i < 10; $i++)
