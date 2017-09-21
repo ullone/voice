@@ -10,8 +10,9 @@ class Index {
     }
 
     public function semanticComprehension() {
-      $text   = empty($_POST['text'])?'今天星期几':$_POST['text'];
-      $text   = base64_encode($text);
+      // $text   = empty($_POST['text'])?'今天星期几':$_POST['text'];
+      // $text   = base64_encode($text);
+      $text      = 'text=5LuK5aSp5pif5pyf5Yeg';
       $timestamp = time();
       //生成param参数
       $userid = '';
@@ -19,9 +20,10 @@ class Index {
       {
         $userid .= chr(mt_rand(33, 126));
       }
-      $param    = array('scene' => 'main', 'userid' => $userid);
-      $param    = base64_encode(json_encode($param));
-      $checkSum = 'daa3e49549c8481389ef01d2a4488f88'.$timestamp.$param.'text='.$text;
+      // $param    = array('scene' => 'main', 'userid' => $userid);
+      // $param    = base64_encode(json_encode($param));
+      $param    = 'eyJzY2VuZSI6Im1haW4ifQ==';
+      $checkSum = 'daa3e49549c8481389ef01d2a4488f88'.$timestamp.$param.$text;
       $checkSum = md5($checkSum);
       $url      = 'http://api.xfyun.cn/v1/aiui/v1/text_semantic';
       // $url      = 'https://imyour.vip/admin/TestCon/test';
@@ -38,7 +40,7 @@ class Index {
       $header = [
         "X-Appid:59c37565",
         "X-CurTime:".$data['timestamp'],
-        // "X-Param:".$data['param'],
+        "X-Param:".$data['param'],
         "X-CheckSum:".$data['checkSum'],
       ];
     	$ch = curl_init();
