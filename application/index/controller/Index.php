@@ -20,9 +20,9 @@ class Index {
       {
         $userid .= chr(mt_rand(33, 126));
       }
-      // $param    = array('scene' => 'main', 'userid' => $userid);
-      // $param    = base64_encode(json_encode($param));
-      $param    = 'eyJzY2VuZSI6Im1haW4ifQ==';
+      $param    = array('scene' => 'main', 'userid' => $userid);
+      $param    = base64_encode(json_encode($param));
+      // $param    = 'eyJzY2VuZSI6Im1haW4ifQ==';
       $checkSum = 'daa3e49549c8481389ef01d2a4488f88'.$timestamp.$param.$text;
       $checkSum = md5($checkSum);
       $url      = 'http://api.xfyun.cn/v1/aiui/v1/text_semantic';
