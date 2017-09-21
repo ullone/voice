@@ -38,8 +38,8 @@ class Index {
       $header = [
         "X-Appid:59c37565",
         "X-CurTime:".$data['timestamp'],
-        "X-Param:".$data['param'],
-        // "X-CheckSum:".$data['checkSum'],
+        // "X-Param:".$data['param'],
+        "X-CheckSum:".$data['checkSum'],
       ];
     	$ch = curl_init();
     	curl_setopt($ch, CURLOPT_URL, $url);
