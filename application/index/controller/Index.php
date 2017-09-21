@@ -33,9 +33,9 @@ class Index {
     }
 
     private function doCurl($url, $method = 'get', $data = null) {
-      $header = array(
+      $header = [
         'appid: 59bf7ad0',
-      );
+      ];
     	$ch = curl_init();
     	curl_setopt($ch, CURLOPT_URL, $url);
     	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
