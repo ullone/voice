@@ -21,7 +21,7 @@ class Index {
       }
       $param    = array('scene' => 'main', 'userid' => $userid);
       $param    = base64_encode(json_encode($param));
-      $checkSum = '2465d5f2471a4bf297ed6e4e144a18f3'.$timestamp.$param.'text='.$text;
+      $checkSum = 'daa3e49549c8481389ef01d2a4488f88'.$timestamp.$param.'text='.$text;
       $checkSum = md5($checkSum);
       $url      = 'http://api.xfyun.cn/v1/aiui/v1/text_semantic';
       // $url      = 'https://imyour.vip/admin/TestCon/test';
@@ -36,7 +36,7 @@ class Index {
 
     private function doCurl($url, $method = 'get', $data = null) {
       $header = [
-        "X-Appid:59bf7ad0",
+        "X-Appid:59c37565",
         "X-CurTime:".$data['timestamp'],
         "X-Param:".$data['param'],
         "X-CheckSum:".$data['checkSum'],
