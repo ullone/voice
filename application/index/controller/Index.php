@@ -19,7 +19,7 @@ class Index {
       {
         $userid .= chr(mt_rand(33, 126));
       }
-      $param    = array('scene' => 'main', 'userid' => 123456);
+      $param    = array('scene' => 'main');
       $param    = base64_encode(json_encode($param));
       $checkSum = '406ea0c36b4f49cea2b45360bb84271f'.$timestamp.$param.'text='.$text;
       $checkSum = md5($checkSum);
