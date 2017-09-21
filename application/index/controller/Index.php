@@ -21,10 +21,10 @@ class Index {
       }
       $param    = array('scene' => 'main', 'userid' => $userid);
       $param    = base64_encode(json_encode($param));
-      $checkSum = '406ea0c36b4f49cea2b45360bb84271f'.$timestamp.$param.'text='.$text;
+      $checkSum = '2465d5f2471a4bf297ed6e4e144a18f3'.$timestamp.$param.'text='.$text;
       $checkSum = md5($checkSum);
-      // $url      = 'http://api.xfyun.cn/v1/aiui/v1/text_semantic';
-      $url      = 'https://imyour.vip/admin/TestCon/test';
+      $url      = 'http://api.xfyun.cn/v1/aiui/v1/text_semantic';
+      // $url      = 'https://imyour.vip/admin/TestCon/test';
       $data     = array(
         'timestamp' => $timestamp,
         'checkSum'  => $checkSum,
