@@ -24,7 +24,7 @@ class Index {
       $checkSum = '406ea0c36b4f49cea2b45360bb84271f'.$timestamp.$param.'text='.$text;
       $checkSum = md5($checkSum);
       // $url      = 'http://api.xfyun.cn/v1/aiui/v1/text_semantic';
-      $url      = 'https://imyour.vip/admin/Testcon/Index/test';
+      $url      = 'https://imyour.vip/admin/TestCon/test';
       $data     = array(
         'timestamp' => $timestamp,
         'checkSum'  => $checkSum,
