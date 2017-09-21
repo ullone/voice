@@ -19,7 +19,7 @@ class Index {
       {
         $userid .= chr(mt_rand(33, 126));
       }
-      $param    = array('scene' => 'main');
+      $param    = array('scene' => 'main', 'userid' => $userid);
       $param    = base64_encode(json_encode($param));
       $checkSum = '406ea0c36b4f49cea2b45360bb84271f'.$timestamp.$param.'text='.$text;
       $checkSum = md5($checkSum);
@@ -38,8 +38,8 @@ class Index {
       $header = [
         "X-Appid:59bf7ad0",
         "X-CurTime:".$data['timestamp'],
-        "X-CheckSum:".$data['checkSum'],
         "X-Param:".$data['param'],
+        "X-CheckSum:".$data['checkSum'],
       ];
     	$ch = curl_init();
     	curl_setopt($ch, CURLOPT_URL, $url);
