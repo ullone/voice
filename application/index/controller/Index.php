@@ -35,7 +35,7 @@ class Index {
     }
 
     public function voiceToText() {
-      $file      = isset($_POST['file'])?$_POST['file']:'voice.ullone.com/newfile.txt';
+      $file      = isset($_POST['file'])?$_POST['file']:'log.txt';
       if(file_exists($file))
       {
         echo("file: $file exists\n");
