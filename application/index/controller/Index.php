@@ -35,7 +35,7 @@ class Index {
     }
 
     public function voiceToText() {
-      $file      = isset($_POST['file'])?$_POST['file']:'../../../static/voice/test.wav';
+      $file      = isset($_POST['file'])?'voice.ullone.com'$_POST['file']:'voice.ullone.com/static/voice/test.wav';
       $handle    = fopen($file,"r");
       $content   = fread($handle,filesize($file));
       var_dump($content);die;
