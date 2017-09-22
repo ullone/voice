@@ -39,7 +39,6 @@ class Index {
       $file      = isset($_POST['file'])?$_POST['file']:$root;
       $handle    = fopen($file,"r");
       $content   = fread($handle,filesize($file));
-      var_dump($content);die;
       $text      = 'data='.base64_encode($content);
       $timestamp = time();
       $param     = array('auf' => '8k', 'aue' => 'raw', 'scene' => 'main');
