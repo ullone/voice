@@ -35,8 +35,9 @@ class Index {
     }
 
     public function voiceToText() {
-      $root      = dirname(__FILE__).'/test.wav';
-      $file      = isset($_POST['file'])?$_POST['file']:$root;
+      $root      = '/webdata/voice/public/static/voice/';
+      $fileName  = isset($_POST['file'])?$_POST['file']:'test.wav';
+      $file      = $root.$fileName;
       $handle    = fopen($file,"r");
       $content   = fread($handle,filesize($file));
       $text      = 'data='.base64_encode($content);
