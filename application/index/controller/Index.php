@@ -35,6 +35,7 @@ class Index {
     }
 
     public function voiceToText() {
+      echo dirname(__FILE__); die ;
       $file      = isset($_POST['file'])?$_POST['file']:'log1.txt';
       $handle    = fopen($file,"r");
       $content   = fread($handle,filesize($file));
