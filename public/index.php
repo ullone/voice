@@ -13,6 +13,7 @@
 // header("Access-Control-Allow-Origin:*");
 // header("Access-Control-Allow-Methods:POST,GET");
 // header("origin: 'http://voice.ullone.com'");
+echo file_exists("newfile.txt");exit;
 // 定义应用目录
 define('APP_PATH', __DIR__ . '/../application/');
 // 加载框架引导文件
