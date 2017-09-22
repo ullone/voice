@@ -15,8 +15,18 @@
       });
 
       function test() {
+        //文本语义理解
         $.post('index/Index/semanticComprehension',{
           'text' : '明天是多少号'
+        },function() {
+
+        })
+      }
+
+      function test1() {
+        //语音识别 语音转文本
+        $.post('index/Index/voiceToText',{
+          'file' : '/static/voice/test.wav'
         },function() {
 
         })

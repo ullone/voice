@@ -22,11 +22,29 @@ class Index {
       }
       $param    = array('scene' => 'main', 'userid' => $userid);
       $param    = base64_encode(json_encode($param));
-      // $param    = 'eyJzY2VuZSI6Im1haW4ifQ==';
       $checkSum = 'daa3e49549c8481389ef01d2a4488f88'.$timestamp.$param.$text;
       $checkSum = md5($checkSum);
       $url      = 'http://api.xfyun.cn/v1/aiui/v1/text_semantic';
-      // $url      = 'https://imyour.vip/admin/TestCon/test';
+      $data     = array(
+        'timestamp' => $timestamp,
+        'checkSum'  => $checkSum,
+        'param'     => $param,
+        'text'      => $text
+      );
+      $this->doCurl($url, 'post', $data);
+    }
+
+    public function voiceToText() {
+      $file      = isset($_POST['file'])?$_POST['file']:'/static/voice/test.wav';
+      $handle    = fopen($file,"r");
+      $content   = fread($handle,filesize($file));
+      var_dump($content);die;
+      $text      = 'data='.base64_encode($content);
+      $timestamp = time();
+      $param     = array('auf' => '8k', 'aue' => 'raw', 'scene' => 'main');
+      $param     = base64_encode(json_encode($param));
+      $checkSum  = md5('daa3e49549c8481389ef01d2a4488f88'.$timestamp.$param.$text);
+      $url       = 'http://api.xfyun.cn/v1/aiui/v1/iat';
       $data     = array(
         'timestamp' => $timestamp,
         'checkSum'  => $checkSum,
