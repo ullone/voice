@@ -1,11 +1,11 @@
 <?php
-namespace app\Test\controller;
+namespace app\index\controller;
 
 use \think\View;
 
 class Test {
 
-    public function Test() {
+    public function index() {
         $view = new \think\View();
         return $view->fetch();
     }
