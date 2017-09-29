@@ -10,7 +10,6 @@ class Index {
     }
 
     public function semanticComprehension() {
-      header("Content-type: text/html; charset=gb2312");
       $text   = empty($_POST['text'])?'今天星期几':$_POST['text'];
       $text   = base64_encode($text);
       $text      = 'text='.$text;
@@ -57,6 +56,7 @@ class Index {
     }
 
     private function doCurl($url, $method = 'get', $data = null) {
+      header("Content-type: text/html; charset=gb2312");
       $header = [
         "X-Appid:59c37565",
         "X-CurTime:".$data['timestamp'],
