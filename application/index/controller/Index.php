@@ -81,7 +81,7 @@ class Index {
     		print curl_error($ch);
     	}
     	curl_close($ch);
-      exit('success');
+      exit('成功');
     	// var_dump($response);die;
     }
 }
