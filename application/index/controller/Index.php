@@ -5,10 +5,6 @@ use \think\View;
 
 class Index {
 
-    public function __construct() {
-      header("content-type:text/html;charset=utf-8");
-    }
-
     public function index() {
         $view = new \think\View();
         return $view->fetch();
@@ -88,7 +84,6 @@ class Index {
     		print curl_error($ch);
     	}
     	curl_close($ch);
-      var_dump($response);die;
     	return $response;
     }
 }
