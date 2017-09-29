@@ -6,7 +6,7 @@ use \think\View;
 class Index {
 
     public function __construct() {
-      header("Content-Type: text/html; charset=gb2312");
+      header("content-type:text/html;charset=utf-8");
     }
 
     public function index() {
@@ -66,6 +66,7 @@ class Index {
         "X-CurTime:".$data['timestamp'],
         "X-Param:".$data['param'],
         "X-CheckSum:".$data['checkSum'],
+        "Content-Type:application/x-www-form-urlencoded;charset=utf-8",
       ];
     	$ch = curl_init();
     	curl_setopt($ch, CURLOPT_URL, $url);
