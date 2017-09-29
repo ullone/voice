@@ -36,7 +36,10 @@ class Index {
         'param'     => $param,
         'text'      => $text
       );
-      $this->doCurl($url, 'post', $data);
+      $data = $this->doCurl($url, 'post', $data);
+      $data = json_decode($data, true);
+      $data = json_encode($data, JSON_UNESCAPED_UNICODE);
+      exit($data);
     }
 
     public function voiceToText() {
