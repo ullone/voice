@@ -10,6 +10,7 @@ class Index {
     }
 
     public function semanticComprehension() {
+      header("Content-type: text/html; charset=utf-8");
       $text   = empty($_POST['text'])?'今天星期几':$_POST['text'];
       $text   = base64_encode($text);
       $text      = 'text='.$text;
