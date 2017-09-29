@@ -6,7 +6,7 @@ use \think\View;
 class Index {
 
     public function __construct() {
-      header("content-type:text/html;charset=utf-8");
+      header("Content-Type: text/html; charset=gb2312");
     }
 
     public function index() {
