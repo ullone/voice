@@ -1,4 +1,6 @@
 <?php
+header("content-type:text/html;charset=utf-8");
+
 namespace app\index\controller;
 
 use \think\View;
@@ -56,7 +58,6 @@ class Index {
     }
 
     private function doCurl($url, $method = 'get', $data = null) {
-      header("Content-type: text/html; charset=gb2312");
       $header = [
         "X-Appid:59c37565",
         "X-CurTime:".$data['timestamp'],
