@@ -10,8 +10,9 @@ class Index {
     }
 
     public function index() {
-        $view = new \think\View();
-        return $view->fetch();
+        // $view = new \think\View();
+        // return $view->fetch();
+        $this->semanticComprehension();
     }
 
     public function semanticComprehension() {
