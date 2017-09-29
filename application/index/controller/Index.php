@@ -37,6 +37,7 @@ class Index {
         'text'      => $text
       );
       $data = $this->doCurl($url, 'post', $data);
+      var_dump($data);die;
       $data = json_decode($data, true);
       $data = json_encode($data, JSON_UNESCAPED_UNICODE);
       exit($data);
