@@ -6,8 +6,9 @@ use \think\View;
 class Test {
 
     public function index() {
-        $view = new \think\View();
-        return $view->fetch();
+        // $view = new \think\View();
+        // return $view->fetch();
+        $this->semanticComprehension();
     }
 
     public function semanticComprehension() {
