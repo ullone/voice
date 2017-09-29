@@ -10,9 +10,8 @@ class Index {
     }
 
     public function index() {
-        // $view = new \think\View();
-        // return $view->fetch();
-        $this->semanticComprehension();
+        $view = new \think\View();
+        return $view->fetch();
     }
 
     public function semanticComprehension() {
@@ -58,7 +57,10 @@ class Index {
         'param'     => $param,
         'text'      => $text
       );
-      $this->doCurl($url, 'post', $data);
+      $data = $this->doCurl($url, 'post', $data);
+      $data = json_decode($data, true);
+      $data = json_encode($data, JSON_UNESCAPED_UNICODE);
+      exit($data);
     }
 
     private function doCurl($url, $method = 'get', $data = null) {
@@ -82,7 +84,6 @@ class Index {
     		print curl_error($ch);
     	}
     	curl_close($ch);
-      // exit('成功');
-    	var_dump($response);die;
+    	return $response;
     }
 }
